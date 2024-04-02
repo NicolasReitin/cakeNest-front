@@ -3,7 +3,9 @@ import './App.css'
 function App() {
 
   const handleSubmit = (e) => {
+    console.log(e.target[0].value);
     e.preventDefault();
+    alert('Bonjour ' + e.target[0].value)
     e.target.reset();
   }
   return (
@@ -12,7 +14,7 @@ function App() {
       <h2>Connectez vous</h2>
 
       <form onSubmit={handleSubmit}>
-        <input type="text" name="" id="" placeholder='Entrez votre prénom...'/>
+        <input type="text" name="" placeholder='Entrez votre prénom...' required/>
         <button type="submit">Accéder à votre espace</button>
       </form>
     </>
