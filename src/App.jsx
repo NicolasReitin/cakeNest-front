@@ -1,9 +1,8 @@
-import './App.css'
+import './assets/css/App.css'
 
 function App() {
 
   const handleSubmit = (e) => {
-    console.log(e.target[0].value);
     e.preventDefault();
     alert('Bonjour ' + e.target[0].value)
     e.target.reset();
