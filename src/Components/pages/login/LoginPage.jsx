@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
-export default function Login() {
+export default function LoginPage() {
 
 //Etats
     const [error, setError] = useState('');
     const [firstName, setFirstName] = useState('');
+    const navigate = useNavigate();
 
 //comportements
     const handleSubmit = (e) => {
@@ -13,8 +15,9 @@ export default function Login() {
             setError('Veuillez entrer votre prénom')
         }else{
             setError('')
-            alert('Bonjour ' + firstName)
-            e.target.reset();
+            // alert('Bonjour ' + firstName)
+            // e.target.reset();
+            navigate('/order/'+firstName)
         }
     }
 
@@ -45,3 +48,4 @@ export default function Login() {
         </>
     )
 }
+
