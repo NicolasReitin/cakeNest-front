@@ -1,5 +1,5 @@
 import './assets/css/App.css'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { Router, Routes, Route, Link } from 'react-router-dom';
 
 import LoginPage from '@/Components/pages/login/LoginPage';
 import OrderPage from '@/Components/pages/order/OrderPage';
