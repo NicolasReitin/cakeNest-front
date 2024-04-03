@@ -38,7 +38,6 @@ export default function OrderPage() {
 const WrapperStyled = styled.div`
   background-color: ${theme.colors.turquoise};
   height: 100vh;
-  width:100%;
   padding: 2% 5%;
   
 `
