@@ -17,7 +17,7 @@ export default function LoginPage() {
             setError('')
             // alert('Bonjour ' + firstName)
             // e.target.reset();
-            navigate('/order/'+firstName)
+            navigate(`/order/${firstName}`)
         }
     }
 
