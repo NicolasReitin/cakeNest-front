@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import tartImage from '/images/tarts.jpg';
 import {theme} from '../../../index.js';
 import PrimaryButton from '../reusable-ui/PrimaryButton.jsx';
-import Logo from '../reusable-ui/Logo.jsx';
+import Logo from '@/Components/pages/reusable-ui/Logo'
 
 export default function LoginPage() {
 
@@ -38,7 +38,7 @@ export default function LoginPage() {
             <ContainerLoginStyle>
                 <section>
                     <Logo 
-                        src="/images/cupcake.png"
+                        marginBottom='20%'
                     />
                     <h2>Bienvenue chez nous !</h2>
                     <hr />
