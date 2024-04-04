@@ -14,9 +14,11 @@ export default function PrimaryButton({bgColor, width, content, icone, height, f
             fontSize={fontSize}
             fontWeight={fontWeight}
         >{content} 
-            <span>
-                <img src={icone} />
-            </span>
+            {icone && (
+                <span>
+                    <img src={icone} />
+                </span>
+            )}
         </ButtonStyled>
     </>
   )

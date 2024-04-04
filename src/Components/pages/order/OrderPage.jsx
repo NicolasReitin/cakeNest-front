@@ -12,6 +12,7 @@ export default function OrderPage() {
   const {username} = useParams();
   const navigate = useNavigate();
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
     navigate('/')
@@ -24,12 +25,7 @@ export default function OrderPage() {
           <Navbar username={username}/>
 
           <MainStyled>
-            {/* <h1>Bonjour {username.charAt(0).toUpperCase() + username.slice(1)}</h1>
-            <form onSubmit={handleSubmit}>
-              <button type="submit">Déconnexion</button>
-            </form> */}
-          <Cards />
-
+            <Cards />
           </MainStyled>
 
         </ContainerStyled>
