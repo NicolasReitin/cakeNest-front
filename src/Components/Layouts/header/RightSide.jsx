@@ -1,5 +1,5 @@
 import React from 'react'
-import Profile from '@/Components/pages/reusable-ui/Profile'
+import Profile from '@/Components/reusable-ui/Profile'
 import styled from 'styled-components'
 
 export default function RightSide({username}) {

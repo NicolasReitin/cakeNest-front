@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import {theme} from '../../../index.js';
+import {theme} from '../../index.js';
 
 
 export default function Logo({marginBottom, marginTop}) {
@@ -22,12 +22,12 @@ const LogoStyled = styled.h1`
     font-family: sans-serif;
     font-weight: regular 400;
     font-size: 38px;
-    color: ${theme.colors.turquoise};
+    color: ${theme.colors.primary};
     margin-bottom: ${props => props.marginBottom || '0%'};
     margin-top: ${props => props.marginTop || '0%'};
     a{
         text-decoration: none;
-        color: ${theme.colors.turquoise};
+        color: ${theme.colors.primary};
         white-space: nowrap;
     }
     img{

@@ -25,5 +25,6 @@ const NavbarStyled = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 1%;
-  height: 10vh;
+  height: 7vh;
+  min-height: 90px;
 `
