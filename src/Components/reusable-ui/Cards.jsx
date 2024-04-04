@@ -13,7 +13,7 @@ export default function Cards() {
         {
           articles.map((article) => (
             <Card 
-              articleId={article.id}
+              key={article.id}
               imageSource={article.imageSource}
               title={article.title}
               price={article.price}
