@@ -53,7 +53,12 @@ export default function LoginPage() {
                             onChange={handleInputChange}
                         />
 
-                        <PrimaryButton />
+                        <PrimaryButton 
+                            content='Mon espace'
+                            width='450px'
+                            icone="/icones/droit.png"
+                            height='60px'
+                        />
 
                         {error && 
                             <p style={{color: 'red', fontStyle: 'italic'}}>{error}</p>

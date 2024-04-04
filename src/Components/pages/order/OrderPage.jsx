@@ -4,7 +4,8 @@ import { useParams } from 'react-router-dom';
 import styled from "styled-components"
 
 import Navbar from '@/Components/Layouts/header/Navbar';
-import {theme} from '../../../index.js';
+import {theme} from '../../../index';
+import Cards from '../../reusable-ui/Cards.jsx';
 
 export default function OrderPage() {
 
@@ -27,8 +28,8 @@ export default function OrderPage() {
             <form onSubmit={handleSubmit}>
               <button type="submit">Déconnexion</button>
             </form> */}
+          <Cards />
 
-            
           </MainStyled>
 
         </ContainerStyled>
@@ -41,7 +42,6 @@ const WrapperStyled = styled.div`
   background-color: ${theme.colors.primary};
   height: 100vh;
   padding: 3%;
-  
 `
 const ContainerStyled = styled.div`
   height: 90%;
@@ -49,7 +49,7 @@ const ContainerStyled = styled.div`
 const MainStyled = styled.main`
   padding: 2%;
   border-radius: 0 0 10px 10px;
-  background-color: ${theme.colors.white};
+  background-color: ${theme.colors.background_white};
   height: 100%;
   box-shadow: 
   inset 0 15px 15px 0px rgba(0, 0, 0, 0.1), /* Shadow top */

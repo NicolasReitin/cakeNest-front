@@ -4,12 +4,18 @@ import {theme} from '../../index.js';
 
 
 
-export default function PrimaryButton({bgColor}) {
+export default function PrimaryButton({bgColor, width, content, icone, height, fontSize, fontWeight}) {
   return (
     <>
-        <ButtonStyled bgColor={bgColor} >Mon espace 
+        <ButtonStyled 
+            bgColor={bgColor} 
+            width={width} 
+            height={height}
+            fontSize={fontSize}
+            fontWeight={fontWeight}
+        >{content} 
             <span>
-                <img src="/icones/droit.png" alt="next" />
+                <img src={icone} />
             </span>
         </ButtonStyled>
     </>
@@ -17,12 +23,13 @@ export default function PrimaryButton({bgColor}) {
 }
 
 const ButtonStyled = styled.button`
-    height: 60px;
-    width: 100%;
+    height: ${props => props.height || 'auto'};
+    width: ${props => props.width};
     background: ${props => props.bgColor || theme.colors.primary};
     color: ${theme.colors.white};
-    font-size: 18px;
-    font-weight: 600;
+    font-size: ${props => props.fontSize || '18px'};
+    padding: 0 10%;
+    font-weight: ${props => props.fontWeight || '600'};
     border-radius: 5px;
     border: none;
     span{
