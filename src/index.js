@@ -17,7 +17,6 @@ const colors = {
     greyDark: "#6f737e",
     greyBlue: "#747b91",
     loginLine: "#254f68",
-    turquoise: '#64a5ab'
 };
 
 const spacing = {

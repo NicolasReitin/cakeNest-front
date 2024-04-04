@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import {theme} from '../../../index.js';
+import {theme} from '../../index.js';
 
 
 
@@ -19,8 +19,7 @@ export default function PrimaryButton({bgColor}) {
 const ButtonStyled = styled.button`
     height: 60px;
     width: 100%;
-    /* background: ${theme.colors.turquoise}; */
-    background: ${props => props.bgColor || theme.colors.turquoise};
+    background: ${props => props.bgColor || theme.colors.primary};
     color: ${theme.colors.white};
     font-size: 18px;
     font-weight: 600;

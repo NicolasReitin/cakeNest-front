@@ -4,8 +4,8 @@ import styled from 'styled-components';
 
 import tartImage from '/images/tarts.jpg';
 import {theme} from '../../../index.js';
-import PrimaryButton from '../reusable-ui/PrimaryButton.jsx';
-import Logo from '@/Components/pages/reusable-ui/Logo'
+import PrimaryButton from '../../reusable-ui/PrimaryButton.jsx';
+import Logo from '@/Components/reusable-ui/Logo'
 
 export default function LoginPage() {
 
@@ -103,7 +103,7 @@ export default function LoginPage() {
         hr{
             margin: 0 auto;
             width: 500px;
-            color: ${theme.colors.turquoise};
+            color: ${theme.colors.primary};
             height: 3px;
             background-color: ${theme.colors.loginLine};
             border: none;
