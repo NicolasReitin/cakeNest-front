@@ -21,6 +21,7 @@ export default function Profile({username}) {
         <BsPersonCircle />
       </div>
     </ProfileStyled>
+    
   )
 }
 
