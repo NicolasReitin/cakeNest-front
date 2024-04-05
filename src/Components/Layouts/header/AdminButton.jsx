@@ -4,6 +4,9 @@ import { theme } from '../../../index'
 import { Link } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FiChevronDown, FiChevronUp } from "react-icons/fi";
+import { AiOutlinePlus } from "react-icons/ai";
+import { MdModeEditOutline } from "react-icons/md";
 
 //install "npm install --save react-toastify"
 // library toastify : https://fkhadra.github.io/react-toastify/installation/
@@ -33,13 +36,30 @@ export default function AdminButton() {
 
   return (
     <>
-        <AdminButtonStyled isAdmin={isAdmin} onClick={notify}>
-                <Link to="#" >
+        <AdminButtonStyled 
+            isAdmin={isAdmin} 
+            onClick={notify}>
+                <button>
+                    {console.log(isAdmin)}
                     <div className='ball-effect'></div>
                     {isAdmin ? "DÉSACTIVER LE MODE ADMIN" : "ACTIVER LE MODE ADMIN"}
-                </Link>
+                </button>
+
             <ToastContainer limit={6}/>
         </AdminButtonStyled>
+
+        {isAdmin && (
+        <MenuAdminBottom>
+            <div className="menu-admin">
+                <ul>
+                    <li><FiChevronDown /></li>
+                    {/* <li><FiChevronUp /></li> */}
+                    <li><AiOutlinePlus /> Ajouter un produit</li>
+                    <li><MdModeEditOutline />Modifier un produit</li>
+                </ul>
+            </div>
+        </MenuAdminBottom>
+        )};
     </>
   )
 }
@@ -69,10 +89,13 @@ const AdminButtonStyled = styled.div`
         border-radius: 50%;
         background-color: ${theme.colors.primary};
         transition: transform 0.8s ease-in-out;
-        transform: translateX(${({ isAdmin }) => (isAdmin ? '225px' : '0')});    
+        transform: translateX(${({ isAdmin }) => (isAdmin ? '225px' : '0')});
     }
-    a{
+    button{
         color: ${theme.colors.primary};
+        background-color: transparent;
+        cursor: pointer;
+        border: none;
         text-decoration: none;
         width: 100%;
         height: 100%;
@@ -80,4 +103,47 @@ const AdminButtonStyled = styled.div`
         align-items: center;
         justify-content: center;
     }
+`
+const MenuAdminBottom = styled.div`
+    position: fixed;
+    bottom: 3%;
+    left: 3%;
+    right: 3%;
+    width: calc(100% - 2 * 3%);
+    height: 25vh;
+    background-color: ${theme.colors.background_white};
+    border-radius: 0 0 10px 10px;
+    box-shadow: 
+    0 -5px 10px 0px rgba(0, 0, 0, 0.2), /* Shadow top */
+    inset -10px 0 15px 0px rgba(0, 0, 0, 0.2), /* Shadow left */
+    inset 10px 0 15px 0px rgba(0, 0, 0, 0.2), /* Shadow right */
+    inset 10px 0 15px 0px rgba(0, 0, 0, 0.2); /* Shadow bottom */
+    
+    .menu-admin{
+        position: absolute;
+        top: -43px;
+        left: 4%;
+        background-color: ${theme.colors.background_white};
+        z-index: 2;
+        ul{
+            display: flex;
+            li{
+                list-style: none;
+                cursor: pointer;
+                font-size:18px;
+                border: solid 2px #c0c0c079;
+                border-radius: 5px 5px 0 0;
+                background-color: ${theme.colors.background_white};
+                height: 100%;
+                padding: 8px 20px;
+                color: #98a5b5;
+                &:hover{
+                    background-color: #2a2729;
+                    color: white;
+                }
+
+            }
+        }
+    }
+    
 `
