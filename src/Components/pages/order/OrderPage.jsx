@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import styled from "styled-components"
 import Navbar from '@/Components/Layouts/header/Navbar';
 import {theme} from '../../../index';
@@ -8,7 +8,6 @@ import Cards from '../../reusable-ui/Cards.jsx';
 export default function OrderPage() {
 
   const {username} = useParams();
-
   return (
     <>
       <WrapperStyled>

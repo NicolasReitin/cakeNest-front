@@ -7,6 +7,7 @@ import AdminButton from '@/Components/Layouts/header/AdminButton.jsx'
 
 
 export default function Navbar({username}) {
+  
   return (
     <>
       <NavbarStyled>

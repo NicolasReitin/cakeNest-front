@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { theme } from '../../../index'
 import { Link } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
@@ -12,7 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function AdminButton() {
 
     const [isAdmin, setIsAdmin] = useState(false);
-    
+
     const notify = () => {
         if(isAdmin) {
             setIsAdmin(false);
@@ -55,15 +55,8 @@ const AdminButtonStyled = styled.div`
     color: ${theme.colors.primary};
     text-decoration: none ;
     border-radius: 150px;
-    ${({ isAdmin }) => isAdmin
-        ? css`
-            background-color: ${theme.colors.white};
-            border: solid 2px ${theme.colors.primary}
-        `
-        : css`
-            background-color: ${theme.colors.dark};
-        `
-    };
+    background-color: ${({ isAdmin }) => (isAdmin ? theme.colors.white : theme.colors.dark)};
+    border: solid 2px ${({ isAdmin }) => (isAdmin ? theme.colors.primary : 'transparent')};
     display: flex;
     align-items: center;
     z-index: 2;
