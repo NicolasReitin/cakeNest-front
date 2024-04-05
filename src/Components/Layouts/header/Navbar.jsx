@@ -34,6 +34,7 @@ const NavbarStyled = styled.div`
   height: 7vh;
   min-height: 90px;
   .admin-button{
+    position: relative;
     display: flex;
     align-items: center;
   }

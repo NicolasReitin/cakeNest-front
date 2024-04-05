@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import {fakeMenu} from '../../assets/fakeData/fakeMenu.js'
 import Card from './Card.jsx'
-import {formatPrice} from '../../assets/maths'
+import {formatPrice} from '../../utils/maths.js'
 
 
 export default function Cards() {
@@ -27,11 +27,10 @@ export default function Cards() {
 }
 
 const CardsStyled = styled.div`
-    padding: 50px 50px 50px;
+    padding: 10px 50px 50px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Définit le nombre de colonnes en fonction de la largeur des cartes */
-    grid-auto-rows: auto; /* Hauteur des lignes ajustée automatiquement */
-    grid-gap: 60px; /* Espacement horizontal entre les cartes */
+    grid-row-gap: 60px;
     justify-content: center; /* Centre les cartes horizontalement */
     align-items: center; /* Centre les cartes verticalement */
     margin: 0 auto; 

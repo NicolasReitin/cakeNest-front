@@ -1,8 +1,6 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import styled from "styled-components"
-
 import Navbar from '@/Components/Layouts/header/Navbar';
 import {theme} from '../../../index';
 import Cards from '../../reusable-ui/Cards.jsx';
@@ -10,13 +8,6 @@ import Cards from '../../reusable-ui/Cards.jsx';
 export default function OrderPage() {
 
   const {username} = useParams();
-  const navigate = useNavigate();
-
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    navigate('/')
-  }
 
   return (
     <>
@@ -43,6 +34,7 @@ const ContainerStyled = styled.div`
   height: 90%;
 `
 const MainStyled = styled.main`
+  overflow: scroll;
   padding: 2%;
   border-radius: 0 0 10px 10px;
   background-color: ${theme.colors.background_white};
