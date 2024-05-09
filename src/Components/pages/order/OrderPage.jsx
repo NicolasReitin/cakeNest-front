@@ -33,13 +33,13 @@ const ContainerStyled = styled.div`
   height: 90%;
 `
 const MainStyled = styled.main`
-  overflow: scroll;
+  overflow: hidden;
   padding: 2%;
   border-radius: 0 0 10px 10px;
   background-color: ${theme.colors.background_white};
   height: 100%;
   box-shadow: 
-  inset 0 15px 15px 0px rgba(0, 0, 0, 0.1), /* Shadow top */
-    inset -15px 0 15px 0px rgba(0, 0, 0, 0.1), /* Shadow left */
-    inset 10px 0 15px 0px rgba(0, 0, 0, 0.1); /* Shadow right */
+    inset 0 10px 15px 0px rgba(0, 0, 0, 0.2), /* Shadow top */
+    inset -10px 0 15px 0px rgba(0, 0, 0, 0.2), /* Shadow left */
+    inset 10px 0 15px 0px rgba(0, 0, 0, 0.2); /* Shadow right */
 `
