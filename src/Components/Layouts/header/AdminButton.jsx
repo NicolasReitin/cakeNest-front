@@ -16,9 +16,12 @@ export default function AdminButton() {
 
     const [isAdmin, setIsAdmin] = useState(false);
 
+    const [menuIsUp, setMenuIsUp] = useState(false);
+
     const notify = () => {
         if(isAdmin) {
             setIsAdmin(false);
+            setMenuIsUp(true);
             toast.warning("Mode admin désactivé", {
                 position: "bottom-right",
                 autoClose: 2000,
@@ -34,13 +37,25 @@ export default function AdminButton() {
         }
     }
 
+    const menuDown = () => {
+        setMenuIsUp(false)
+        console.log(menuIsUp);
+    }
+
+    const menuUp = () => {
+        setMenuIsUp(true)
+        console.log(menuIsUp);
+
+    }
+
+    
   return (
     <>
         <AdminButtonStyled 
             isAdmin={isAdmin} 
             onClick={notify}>
                 <button>
-                    {console.log(isAdmin)}
+                    {/* {console.log(isAdmin)} */}
                     <div className='ball-effect'></div>
                     {isAdmin ? "DÉSACTIVER LE MODE ADMIN" : "ACTIVER LE MODE ADMIN"}
                 </button>
@@ -49,16 +64,19 @@ export default function AdminButton() {
         </AdminButtonStyled>
 
         {isAdmin && (
-        <MenuAdminBottom>
-            <div className="menu-admin">
-                <ul>
-                    <li><FiChevronDown /></li>
-                    {/* <li><FiChevronUp /></li> */}
-                    <li><AiOutlinePlus /> Ajouter un produit</li>
-                    <li><MdModeEditOutline />Modifier un produit</li>
-                </ul>
-            </div>
-        </MenuAdminBottom>
+            <MenuAdminBottom>
+                <div className="menu-admin">
+                    <ul>
+                        {menuIsUp // si menu est en haut alors fleche vers le bas et inversement
+                            ? <li className='menu-up'><FiChevronDown onClick={menuDown}/></li> 
+                            : <li className='menu-down'><FiChevronUp onClick={menuUp}/></li>
+                        }
+                        
+                        <li><AiOutlinePlus /> Ajouter un produit</li>
+                        <li><MdModeEditOutline />Modifier un produit</li>
+                    </ul>
+                </div>
+            </MenuAdminBottom>
         )};
     </>
   )
@@ -106,11 +124,11 @@ const AdminButtonStyled = styled.div`
 `
 const MenuAdminBottom = styled.div`
     position: fixed;
-    bottom: 3%;
+    bottom: 5%;
     left: 3%;
     right: 3%;
     width: calc(100% - 2 * 3%);
-    height: 25vh;
+    height: ${({ setMenuIsUp }) => (setMenuIsUp ? '0vh' : '25vh' )} ;
     background-color: ${theme.colors.background_white};
     border-radius: 0 0 10px 10px;
     box-shadow: 
