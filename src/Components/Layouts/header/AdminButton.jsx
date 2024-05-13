@@ -37,15 +37,9 @@ export default function AdminButton() {
         }
     }
 
-    const menuDown = () => {
-        setMenuIsUp(false)
-        console.log(menuIsUp);
-    }
-
-    const menuUp = () => {
-        setMenuIsUp(true)
-        console.log(menuIsUp);
-
+    const toggleMenu = () => {
+        setMenuIsUp(prevState => !prevState);
+        console.log("Menu toggled:", menuIsUp);
     }
 
     
@@ -64,12 +58,12 @@ export default function AdminButton() {
         </AdminButtonStyled>
 
         {isAdmin && (
-            <MenuAdminBottom>
+            <MenuAdminBottom menuIsUp={menuIsUp}>
                 <div className="menu-admin">
                     <ul>
                         {menuIsUp // si menu est en haut alors fleche vers le bas et inversement
-                            ? <li className='menu-up'><FiChevronDown onClick={menuDown}/></li> 
-                            : <li className='menu-down'><FiChevronUp onClick={menuUp}/></li>
+                            ? <li><FiChevronDown  onClick={toggleMenu}/></li> 
+                            : <li><FiChevronUp onClick={toggleMenu}/></li>
                         }
                         
                         <li><AiOutlinePlus /> Ajouter un produit</li>
@@ -124,11 +118,11 @@ const AdminButtonStyled = styled.div`
 `
 const MenuAdminBottom = styled.div`
     position: fixed;
-    bottom: 5%;
+    bottom: 5.5%;
     left: 3%;
     right: 3%;
     width: calc(100% - 2 * 3%);
-    height: ${({ setMenuIsUp }) => (setMenuIsUp ? '0vh' : '25vh' )} ;
+    height: ${({ menuIsUp }) => (menuIsUp ? '200px' : '0px')}; /* Modifier la hauteur en fonction de menuIsUp */
     background-color: ${theme.colors.background_white};
     border-radius: 0 0 10px 10px;
     box-shadow: 
@@ -163,5 +157,5 @@ const MenuAdminBottom = styled.div`
             }
         }
     }
-    
-`
+`;
+
