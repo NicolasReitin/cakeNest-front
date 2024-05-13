@@ -18,6 +18,10 @@ export default function AdminButton() {
 
     const [menuIsUp, setMenuIsUp] = useState(false);
 
+    const [addProduct, setAddProduct] = useState(false);
+
+    const [updateProduct, setUpdateProduct] = useState(false);
+
     const notify = () => {
         if(isAdmin) {
             setIsAdmin(false);
@@ -39,7 +43,17 @@ export default function AdminButton() {
 
     const toggleMenu = () => {
         setMenuIsUp(prevState => !prevState);
-        console.log("Menu toggled:", menuIsUp);
+
+    }
+
+    const add = () => {
+        setAddProduct(prevState => !prevState);
+        setUpdateProduct(false)
+    }
+
+    const update = () => {
+        setUpdateProduct(prevState => !prevState);
+        setAddProduct(false)
     }
 
     
@@ -62,13 +76,40 @@ export default function AdminButton() {
                 <div className="menu-admin">
                     <ul>
                         {menuIsUp // si menu est en haut alors fleche vers le bas et inversement
-                            ? <li><FiChevronDown  onClick={toggleMenu}/></li> 
-                            : <li><FiChevronUp onClick={toggleMenu}/></li>
+                            ? <li onClick={toggleMenu}>
+                                <FiChevronDown  />
+                            </li> 
+                            : <li onClick={toggleMenu}>
+                                <FiChevronUp />
+                            </li>
                         }
-                        
-                        <li><AiOutlinePlus /> Ajouter un produit</li>
-                        <li><MdModeEditOutline />Modifier un produit</li>
+
+                        <li onClick={add}>
+                            <AiOutlinePlus /> Ajouter un produit
+                        </li>
+                        <li onClick={update}>
+                            <MdModeEditOutline />Modifier un produit
+                        </li>
                     </ul>
+                </div>
+                <div className="content-menu">
+                    <>
+                        {menuIsUp && (
+                            addProduct &&(
+                                "test"
+                            )
+
+                            
+                        )}
+                        
+                        {menuIsUp && (
+                            updateProduct &&(
+                                "coucou"
+                            )
+
+                            
+                        )}
+                    </>
                 </div>
             </MenuAdminBottom>
         )};
