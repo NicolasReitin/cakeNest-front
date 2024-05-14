@@ -43,17 +43,32 @@ export default function AdminButton() {
 
     const toggleMenu = () => {
         setMenuIsUp(prevState => !prevState);
+        // (menuIsUp && 
+        //     setAddProduct(false),
+        //     setUpdateProduct(false)
+        // )
 
     }
 
     const add = () => {
-        setAddProduct(prevState => !prevState);
-        setUpdateProduct(false)
+        console.log("addproduct    "+addProduct);
+        ( menuIsUp ? (
+            setAddProduct(true),
+            setUpdateProduct(false)
+        ) : setMenuIsUp(true),
+            setAddProduct(true),
+            setUpdateProduct(false)
+        )         
     }
 
     const update = () => {
-        setUpdateProduct(prevState => !prevState);
-        setAddProduct(false)
+        (menuIsUp ? (
+            setUpdateProduct(true),
+            setAddProduct(false)
+        ) : setMenuIsUp(true),
+            setUpdateProduct(true),
+            setAddProduct(false)
+        )
     }
 
     
@@ -72,45 +87,45 @@ export default function AdminButton() {
         </AdminButtonStyled>
 
         {isAdmin && (
-            <MenuAdminBottom menuIsUp={menuIsUp}>
-                <div className="menu-admin">
-                    <ul>
-                        {menuIsUp // si menu est en haut alors fleche vers le bas et inversement
-                            ? <li onClick={toggleMenu}>
-                                <FiChevronDown  />
-                            </li> 
-                            : <li onClick={toggleMenu}>
-                                <FiChevronUp />
-                            </li>
-                        }
-
-                        <li onClick={add}>
-                            <AiOutlinePlus /> Ajouter un produit
+            <MenuAdminBottom 
+                menuIsUp={menuIsUp} 
+                addProduct={addProduct} 
+                updateProduct={updateProduct}
+            >
+            <div className="menu-admin">
+                <ul>
+                    {menuIsUp // si menu est en haut alors fleche vers le bas et inversement
+                        ? <li onClick={toggleMenu}>
+                            <FiChevronDown  />
+                        </li> 
+                        : <li onClick={toggleMenu}>
+                            <FiChevronUp />
                         </li>
-                        <li onClick={update}>
-                            <MdModeEditOutline />Modifier un produit
-                        </li>
-                    </ul>
-                </div>
-                <div className="content-menu">
-                    <>
-                        {menuIsUp && (
-                            addProduct &&(
-                                "test"
-                            )
+                    }
 
-                            
-                        )}
-                        
-                        {menuIsUp && (
-                            updateProduct &&(
-                                "coucou"
-                            )
-
-                            
-                        )}
-                    </>
-                </div>
+                    <li onClick={add} className='add-product'>
+                        <AiOutlinePlus /> Ajouter un produit
+                    </li>
+                    <li onClick={update} className='update-product'>
+                        <MdModeEditOutline />Modifier un produit
+                    </li>
+                </ul>
+            </div>
+            <div className="content-menu">
+                <>
+                    {menuIsUp && (
+                        addProduct &&(
+                            "test"
+                        )
+                    )}
+                    
+                    {menuIsUp && (
+                        updateProduct &&(
+                            "coucou"
+                        )                            
+                    )}
+                </>
+            </div>
             </MenuAdminBottom>
         )};
     </>
@@ -194,8 +209,24 @@ const MenuAdminBottom = styled.div`
                     background-color: #2a2729;
                     color: white;
                 }
-
+                &.add-product{
+                    background: ${({ addProduct }) => (addProduct ? '#2a2729' : theme.colors.background_white)};
+                    color : ${({ addProduct }) => (addProduct ? 'white' : '#98a5b5')};
+                    &:hover{
+                        background-color: #2a2729;
+                        color: white;
+                    }
+                }
+                &.update-product{
+                    background: ${({ updateProduct }) => (updateProduct ? '#2a2729' : theme.colors.background_white)};
+                    color : ${({ updateProduct }) => (updateProduct ? 'white' : '#98a5b5')};
+                    &:hover{
+                        background-color: #2a2729;
+                        color: white;
+                    }
+                }
             }
+            
         }
     }
 `;
