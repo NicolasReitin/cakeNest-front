@@ -6,15 +6,18 @@ import {theme} from "../../../index.js"
 import AdminButton from '@/Components/Layouts/header/AdminButton.jsx'
 
 
-export default function Navbar({username}) {
+export default function Navbar({username, handleNewCupcake}) {
   
   return (
     <>
       <NavbarStyled>
           <LeftSide />
 
+
           <div className='admin-button'>
-            <AdminButton />
+            <AdminButton 
+              handleNewCupcake={handleNewCupcake}
+            />
           </div>
 
           <RightSide username={username}/>

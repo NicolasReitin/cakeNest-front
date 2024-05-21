@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import {fakeMenu} from '../../assets/fakeData/fakeMenu.js'
 import Card from './Card.jsx'
 import {formatPrice} from '../../utils/maths.js'
 
 
-export default function Cards() {
-    const articles = fakeMenu
+
+export default function Cards({articles}) {
+  // sans axios
+    // const articles = fakeMenu
+
+ 
   return (
     <>
       <CardsStyled>

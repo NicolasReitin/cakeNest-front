@@ -4,6 +4,7 @@ import PrimaryButton from '@/Components/reusable-ui/PrimaryButton'
 import { theme } from '../../index'
 import {formatPrice} from '../../utils/maths'
 
+
 export default function Card({articleId, imageSource, title, price, alt}) {
   return (
     <>

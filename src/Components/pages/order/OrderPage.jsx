@@ -1,21 +1,57 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import styled from "styled-components"
 import Navbar from '@/Components/Layouts/header/Navbar';
 import {theme} from '../../../index';
 import Cards from '../../reusable-ui/Cards.jsx';
+import axios from '@/lib/axios'
+
 
 export default function OrderPage() {
 
   const {username} = useParams();
+
+  //via axios
+  const [articles, setArticles] = useState([]); // État pour stocker les articles
+
+  useEffect(() =>{
+    // Fonction asynchrone pour récupérer les articles
+    const fetchArticles = async() => {
+      try {
+        const response = await axios.get('/api/cupcakes')
+        setArticles(response.data.data)
+        console.log(articles);
+      } catch (err) {
+
+      }
+    }
+
+    fetchArticles();
+  }, []);
+
+  const handleNewCupcake = (cupcake) => {
+    setArticles([...articles, cupcake])
+  }
+ 
+ 
   return (
     <>
       <WrapperStyled>
         <ContainerStyled>
-          <Navbar username={username}/>
+          <Navbar
+          username={username}
+          handleNewCupcake={handleNewCupcake}
+          >
+           {/*  */}
+          </Navbar> 
+            
+      
 
           <MainStyled>
-            <Cards />
+            <Cards 
+              articles={articles} 
+            />
+          
           </MainStyled>
 
         </ContainerStyled>

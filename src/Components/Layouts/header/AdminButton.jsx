@@ -12,7 +12,7 @@ import { MdModeEditOutline } from "react-icons/md";
 // library toastify : https://fkhadra.github.io/react-toastify/installation/
 
 
-export default function AdminButton() {
+export default function AdminButton({handleNewCupcake}) {
 
     const [isAdmin, setIsAdmin] = useState(false);
 
@@ -70,12 +70,11 @@ export default function AdminButton() {
             setAddProduct(false)
         )
     }
-
     
   return (
     <>
-        <AdminButtonStyled 
-            isAdmin={isAdmin} 
+        <AdminButtonStyled
+            isAdmin={isAdmin}
             onClick={notify}>
                 <button>
                     {/* {console.log(isAdmin)} */}
@@ -87,7 +86,7 @@ export default function AdminButton() {
         </AdminButtonStyled>
 
         {isAdmin && (
-            <MenuAdminBottom 
+            <MenuAdminBottom
                 menuIsUp={menuIsUp} 
                 addProduct={addProduct} 
                 updateProduct={updateProduct}
